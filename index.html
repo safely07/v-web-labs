@@ -5,9 +5,26 @@
     <link rel="stylesheet" href="/src/style.css">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Магазин</title>
   </head>
   <body>
     <script type="module" src="/src/main.js"></script>
+    <header>
+        <div class="headerContainer">
+            <div class="homeRef">
+              <a href="index.html">Главная</a>  
+            </div>
+            
+            <div class="searchContainer">
+                <input type="text" placeholder="Поиск...">
+            </div>
+            
+            <nav>
+              <a href="#">Избранное</a>
+              <a href="#">Корзина</a>
+            </nav>
+        </div>
+    </header>
+    <div id="productContainer" class="productsGrid"></div>
   </body>
 </html>
