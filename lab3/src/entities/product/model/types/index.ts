@@ -4,6 +4,7 @@ export type TProduct = {
 	price: number,
 	discountPrice: number,
 	image: string,
+	quantity?: number,
 }
 
 export type TProductState = {
@@ -19,4 +20,7 @@ export type TProductState = {
 	delProductFromFavourite: (id: number) => void,
 	isProductInFavouriteById: (id: number) => boolean,
 	isProductInCartById: (id: number) => boolean,
+	incProductQuantity: (id: number) => void,
+	decProductQuantity: (id: number) => void,
+	updateCartQuantity: (id: number, quantity: number) => void,
 }

@@ -8,7 +8,7 @@ export const Cart = () => {
   const totalPrice = useStore((state) => {
     return state.productsInCart.reduce((total, product) => {
       const price = product.discountPrice || product.price;
-      return total + price;
+      return total + (price * (product.quantity || 1));
     }, 0);
   });
   

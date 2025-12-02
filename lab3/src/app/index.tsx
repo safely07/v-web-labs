@@ -7,6 +7,7 @@ import './style/index.css';
 import { StoreProvider } from '../shared/utils/store-provider';
 import { productsList } from '../shared/data/products';
 import type { TProduct, TProductState } from '../entities/product';
+import { Favourite } from '../pages/favourute';
 
 const products: TProduct[] = productsList;
 const initialState: Pick<TProductState, 'products'> = { products };
@@ -21,8 +22,8 @@ const ROUTES = [
 		element: <Cart />,
 	},
 	{
-		path: '*',
-		element: <Home />,
+		path: '/favourite',
+		element: <Favourite />,
 	},
 ];
 

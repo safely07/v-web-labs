@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Image } from '../../../entities/product';
 import { Price } from '../../../entities/product';
 import { type TProduct } from '../../../entities/product';
+import { useStore } from '../../../shared/lib/zustand/store-context';
 
 type TCartItemProps = {
   product: TProduct;
@@ -24,10 +25,18 @@ export const CartItem = ({
   
   const totalPrice = (product.discountPrice || product.price) * localQuantity;
 
+  const updateCartQuantity = useStore((state) => state.updateCartQuantity);
+  
+  // Синхронизируем localQuantity с актуальным quantity из store
+  useEffect(() => {
+    setLocalQuantity(product.quantity || 1);
+  }, [product.quantity]);
+
   const handleQuantityChange = (value: number) => {
     const newQuantity = Math.max(1, Math.min(10, value));
     setLocalQuantity(newQuantity);
     onUpdateQuantity?.(product.id, newQuantity);
+    updateCartQuantity(product.id, newQuantity);
   };
 
   return (
