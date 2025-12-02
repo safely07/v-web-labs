@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import { SearchBar } from '../../../features/search-bar/ui';
 
 export const Header = () => {
   return (
@@ -11,13 +12,7 @@ export const Header = () => {
           Главная
         </Link>
            
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <input 
-            type="text" 
-            placeholder="Поиск..." 
-            className="bg-[#b365d471] py-2 px-10 rounded-full border-none min-w-[300px] text-white font-normal placeholder:text-white/70"
-          />
-        </div>
+        <SearchBar />
         
         <nav className="flex list-none">
           <Link 
